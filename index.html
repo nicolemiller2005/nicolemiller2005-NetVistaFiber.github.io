@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NetVistaFiber - Lightning Fast 6 Gig Internet</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0a0a2e;
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .hero {
+            min-height: 100vh;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: linear-gradient(to right, #0a0a2e, #1a1a40);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00ffff;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+            margin: 4rem auto;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #888;
+        }
+
+        .speed-display {
+            font-size: 6rem;
+            font-weight: bold;
+            color: #00ffff;
+            margin: 2rem 0;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #00ffff;
+        }
+
+        .testimonials {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3rem;
+            margin-top: 5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .testimonial {
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            color: #bbb;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .cta-section {
+            margin: 5rem 0;
+            padding: 3rem;
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            color: #fff;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #00ffff;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <nav class="nav">
+            <div class="logo">NetVistaFiber</div>
+            <div class="nav-links">
+                <a href="#plans">Home</a>
+                <a href="#plans">Fiber Plans</a>
+                <a href="#contact">Mobile Plans</a>
+                <a href="#support">Support</a>
+            </div>
+        </nav>
+
+        <div class="hero-content">
+            <h1 class="hero-title">Experience Lightning Fast Internet</h1>
+            <p class="hero-subtitle">Unleash the power of fiber with speeds up to</p>
+            <div class="speed-display" id="speedCounter">6 Gig</div>
+            <p class="hero-subtitle">The future of internet is here</p>
+            <a href="#signup" class="cta-button">Get Started Today</a>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Ultra-Fast Speeds</h3>
+                    <p>Download movies in seconds, not hours</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎮</div>
+                    <h3>Zero Lag Gaming</h3>
+                    <p>Experience gaming without limits</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Secure Connection</h3>
+                    <p>Advanced encryption for your safety</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>24/7 Support</h3>
+                    <p>Always there to help, anytime you need us</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonials">
+            <h2>What Our Customers Say</h2>
+            <p class="testimonial">"NetVistaFiber has transformed my work-from-home experience. The speed is unreal!"</p>
+            <p class="testimonial-author">- Alex G.</p>
+            <p class="testimonial">"Gaming has never been smoother. No lag, no interruptions - just pure fun!"</p>
+            <p class="testimonial-author">- Jamie L.</p>
+        </div>
+
+        <div class="cta-section">
+            <h2>Join NetVistaFiber Today</h2>
+            <p>Get connected to the future of high-speed internet and experience the NetVistaFiber difference.</p>
+            <a href="#signup" class="cta-button">Sign Up Now</a>
+        </div>
+
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <script>
+        // Create floating particles
+        const particlesContainer = document.getElementById('particles');
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particlesContainer.appendChild(particle);
+        }
+
+        // Animate particles
+        const particles = document.querySelectorAll('.particle');
+        particles.forEach(particle => {
+            gsap.to(particle, {
+                y: 'random(-100, 100)',
+                x: 'random(-100, 100)',
+                opacity: 'random(0.1, 1)',
+                duration: 'random(2, 4)',
+                repeat: -1,
+                yoyo: true,
+                ease: 'none'
+            });
+        });
+
+        // Counter animation
+        const speedCounter = document.getElementById('speedCounter');
+        gsap.from(speedCounter, {
+            textContent: 0,
+            duration: 2,
+            ease: "power1.out",
+            snap: { textContent: 1 },
+            stagger: {
+                each: 1.0,
+                onUpdate: function() {
+                    speedCounter.textContent = Math.ceil(this.targets()[0].textContent) + " Gig";
+                },
+            }
+        });
+    </script>
+</body>
+</html>
