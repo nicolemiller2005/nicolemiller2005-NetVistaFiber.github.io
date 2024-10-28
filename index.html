@@ -178,6 +178,48 @@
             background: #00ffff;
             border-radius: 50%;
         }
+
+        /* Smaller Modal overlay styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            max-width: 90%;
+            max-height: 90%;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.5rem;
+            color: #000;
+            cursor: pointer;
+            background: transparent;
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -186,7 +228,7 @@
             <div class="logo">NetVistaFiber</div>
             <div class="nav-links">
                 <a href="#plans">Home</a>
-                <a href="#plans">Fiber Plans</a>
+                <a href="#plans" id="fiberPlansBtn">Fiber Plans</a>
                 <a href="#contact">Mobile Plans</a>
                 <a href="#support">Support</a>
             </div>
@@ -240,43 +282,33 @@
         <div class="particles" id="particles"></div>
     </div>
 
-    <script>
-        // Create floating particles
-        const particlesContainer = document.getElementById('particles');
-        for (let i = 0; i < 50; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particlesContainer.appendChild(particle);
-        }
+    <!-- Smaller Modal for Fiber Plans -->
+    <div class="modal-overlay" id="fiberPlansModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn">&times;</button>
+            <iframe src="https://nicolemiller2005.github.io/https-nicolemiller2005.github.io-NtVistaFiberpostcode.github.io-/" title="Fiber Plans"></iframe>
+        </div>
+    </div>
 
-        // Animate particles
-        const particles = document.querySelectorAll('.particle');
-        particles.forEach(particle => {
-            gsap.to(particle, {
-                y: 'random(-100, 100)',
-                x: 'random(-100, 100)',
-                opacity: 'random(0.1, 1)',
-                duration: 'random(2, 4)',
-                repeat: -1,
-                yoyo: true,
-                ease: 'none'
-            });
+    <script>
+        // JavaScript for modal functionality
+        const fiberPlansBtn = document.getElementById('fiberPlansBtn');
+        const fiberPlansModal = document.getElementById('fiberPlansModal');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        fiberPlansBtn.addEventListener('click', (e) => {
+            e.preventDefault(); // Prevent default anchor behavior
+            fiberPlansModal.style.display = 'flex'; // Show the modal
         });
 
-        // Counter animation
-        const speedCounter = document.getElementById('speedCounter');
-        gsap.from(speedCounter, {
-            textContent: 0,
-            duration: 2,
-            ease: "power1.out",
-            snap: { textContent: 1 },
-            stagger: {
-                each: 1.0,
-                onUpdate: function() {
-                    speedCounter.textContent = Math.ceil(this.targets()[0].textContent) + " Gig";
-                },
+        closeModalBtn.addEventListener('click', () => {
+            fiberPlansModal.style.display = 'none'; // Hide the modal
+        });
+
+        // Hide modal when clicking outside of content
+        fiberPlansModal.addEventListener('click', (e) => {
+            if (e.target === fiberPlansModal) {
+                fiberPlansModal.style.display = 'none';
             }
         });
     </script>
